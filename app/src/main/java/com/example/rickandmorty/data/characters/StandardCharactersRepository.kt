@@ -4,7 +4,9 @@ import com.example.rickandmorty.data.CharactersRepository
 import com.example.rickandmorty.data.characters.sources.CharactersSource
 import com.example.rickandmorty.domain.entities.Character
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class StandardCharactersRepository @Inject constructor(
     private val charactersSource: CharactersSource
 ) : CharactersRepository {

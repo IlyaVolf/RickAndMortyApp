@@ -19,9 +19,9 @@ class CharactersViewModel @Inject constructor(
     }
 
     private fun load() = viewModelScope.launch(Dispatchers.IO) {
-        val res = charactersRepository.getCharacters()
+        val res1 = charactersRepository.getCharacter(1)
+        val res2 = charactersRepository.getCharacters()
 
-        Log.d("DEBUG", res.toString())
         val a = 5
     }
 

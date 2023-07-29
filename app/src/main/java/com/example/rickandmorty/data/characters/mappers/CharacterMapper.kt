@@ -23,7 +23,7 @@ class CharacterMapper @Inject constructor(
             origin = originMapper.toOrigin(characterResponseEntity.origin),
             location = locationMapper.toLocation(characterResponseEntity.location),
             image = characterResponseEntity.image,
-            episode = characterResponseEntity.episode,
+            episodes = characterResponseEntity.episodes,
             url = characterResponseEntity.url,
             created = characterResponseEntity.created
         )

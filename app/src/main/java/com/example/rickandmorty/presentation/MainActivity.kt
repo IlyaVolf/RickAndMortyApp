@@ -3,7 +3,6 @@ package com.example.rickandmorty.presentation
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.fragment.app.viewModels
 import com.example.rickandmorty.R
 import com.example.rickandmorty.presentation.characters.CharactersViewModel
 import dagger.hilt.android.AndroidEntryPoint

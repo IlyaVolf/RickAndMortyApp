@@ -9,7 +9,7 @@ import retrofit2.http.Query
 
 interface CharactersApi {
 
-    @GET("/character")
+    @GET("character")
     suspend fun getCharacters(
         @Query("page") page: Int? = null,
         @Query("name") name: String? = null,
@@ -19,7 +19,7 @@ interface CharactersApi {
         @Query("gender") gender: GenderResponseEntity? = null,
     ): CharactersListResponseEntity
 
-    @GET("/character/{characterId}")
+    @GET("character/{characterId}")
     suspend fun getCharacter(
         @Path("characterId") characterId: Int
     ): CharacterResponseEntity
