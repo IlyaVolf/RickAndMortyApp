@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="@dimen/margin_sides"
+    android:orientation="vertical"
+    tools:context=".presentation.characters.CharactersFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/characterPicture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <TextView
+                android:id="@+id/characterName"
+                style="@style/TextStyleBold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:textSize="28sp"
+                tools:text="@tools:sample/full_names" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <TextView
+                android:id="@+id/characterStatus"
+                style="@style/TextStyleStandard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:textSize="16sp"
+                tools:text="@string/alive" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_sides" />
+
+            <TextView
+                android:id="@+id/characterSpeciesField"
+                style="@style/TextStyleSecondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                tools:text="@string/species" />
+
+            <TextView
+                android:id="@+id/characterSpecies"
+                style="@style/TextStyleStandard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:textSize="16sp"
+                tools:text="Human" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_sides_small" />
+
+            <TextView
+                android:id="@+id/characterGenderField"
+                style="@style/TextStyleSecondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                tools:text="@string/gender" />
+
+            <TextView
+                android:id="@+id/characterGender"
+                style="@style/TextStyleStandard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:textSize="16sp"
+                tools:text="@string/male" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_sides_small" />
+
+            <TextView
+                android:id="@+id/characterOriginField"
+                style="@style/TextStyleSecondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                tools:text="@string/origin" />
+
+            <TextView
+                android:id="@+id/characterOrigin"
+                style="@style/TextStyleStandard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:textSize="16sp"
+                tools:text="Russia" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_sides_small" />
+
+            <TextView
+                android:id="@+id/characterLocationField"
+                style="@style/TextStyleSecondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                tools:text="@string/location" />
+
+            <TextView
+                android:id="@+id/characterLocation"
+                style="@style/TextStyleStandard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:textSize="16sp"
+                tools:text="Russia" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_sides" />
+
+            <TextView
+                android:id="@+id/characterEpisodesField"
+                style="@style/TextStyleSecondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                tools:text="@string/episode_appeared" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/item_episode_snippet" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <include
+        android:id="@+id/loadState"
+        layout="@layout/view_load_state"
+        android:visibility="gone" />
+
+</LinearLayout>
