@@ -33,6 +33,12 @@ class NetworkModule {
 
     @Provides
     @Singleton
+    fun provideBaseUrl(): String {
+        return Const.BASE_URL
+    }
+
+    @Provides
+    @Singleton
     fun provideRetrofit(client: OkHttpClient, gson: Gson): Retrofit {
         return Retrofit.Builder()
             .baseUrl(Const.BASE_URL)

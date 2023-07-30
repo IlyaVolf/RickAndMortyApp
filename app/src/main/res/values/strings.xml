@@ -3,8 +3,12 @@
 
     <!-- Errors -->
     <string name="error">Ошибка</string>
-    <string name="error_loading_title">Ошибка подключения</string>
-    <string name="error_loading_message">Проверьте соединение с интернетом</string>
+    <string name="error_title">Ошибка</string>
+    <string name="error_message">Повторите позднее</string>
+    <string name="error_connection_title">Ошибка подключения</string>
+    <string name="error_connection_message">Проверьте соединение с интернетом</string>
+    <string name="error_backend_title">Ошибка сервера</string>
+    <string name="error_backend_message">Повторите позднее</string>
     <string name="error_default_load_error_body">Ошибка подключения: проверьте соединение с интернетом</string>
 
     <!-- Actions -->

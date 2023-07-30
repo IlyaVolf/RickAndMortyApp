@@ -20,8 +20,8 @@
     <color name="green">#00FF00</color>
     <color name="blue">#0000FF</color>
 
-    <color name="text_primary">@color/black</color>
-    <color name="text_secondary">@color/grey_medium</color>
-    <color name="button_press">@color/grey_light</color>
+    <color name="text_primary">@color/white</color>
+    <color name="text_secondary">@color/grey_light</color>
+    <color name="button_press">@color/grey_dark</color>
 
 </resources>

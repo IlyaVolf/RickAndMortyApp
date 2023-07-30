@@ -1,6 +1,5 @@
 package com.example.rickandmorty.data.characters.sources.retrofit
 
-import android.util.Log
 import com.example.rickandmorty.data.base.retrofit.BaseRetrofitSource
 import com.example.rickandmorty.data.base.retrofit.RetrofitConfig
 import com.example.rickandmorty.data.characters.mappers.CharacterMapper
@@ -27,7 +26,6 @@ class RetrofitCharactersSource @Inject constructor(
     override suspend fun getCharacter(id: Int): Character = wrapRetrofitExceptions {
         delay(1000)
         val characterResponseEntity = charactersApi.getCharacter(id)
-        Log.d("BUGFIX", characterResponseEntity.toString())
         return@wrapRetrofitExceptions characterMapper.toCharacter(characterResponseEntity)
     }
 

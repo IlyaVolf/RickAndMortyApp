@@ -7,10 +7,13 @@ import androidx.fragment.app.Fragment
 import com.example.rickandmorty.R
 import androidx.fragment.app.viewModels
 import com.example.rickandmorty.databinding.FragmentCharactersBinding
+import com.example.rickandmorty.domain.BackendException
+import com.example.rickandmorty.domain.ConnectionException
 import com.example.rickandmorty.presentation.characters.list.CharactersAdapter
 import com.example.rickandmorty.utils.DataHolder
 import com.example.rickandmorty.utils.viewBinding
 import com.example.rickandmorty.domain.entities.Character
+import com.example.rickandmorty.utils.ResourcesUtils
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -45,20 +48,46 @@ class CharactersFragment : Fragment(R.layout.fragment_characters) {
         viewModel.charactersList.observe(viewLifecycleOwner) { holder ->
             when (holder) {
                 is DataHolder.INIT -> {
-                    setVisibility(false, View.VISIBLE, View.GONE, View.GONE)
+                    setVisibility(
+                        isRefreshing = false,
+                        visibilityLoadingView = View.VISIBLE,
+                        visibilityContentView = View.GONE,
+                        visibilityErrorView = View.GONE
+                    )
                 }
                 is DataHolder.LOADING -> {
-                    setVisibility(false, View.VISIBLE, View.GONE, View.GONE)
+                    setVisibility(
+                        isRefreshing = false,
+                        visibilityLoadingView = View.VISIBLE,
+                        visibilityContentView = View.GONE,
+                        visibilityErrorView = View.GONE
+                    )
                 }
                 is DataHolder.REFRESH -> {
-                    setVisibility(true, View.VISIBLE, View.GONE, View.GONE)
+                    setVisibility(
+                        isRefreshing = true,
+                        visibilityLoadingView = View.GONE,
+                        visibilityContentView = View.VISIBLE,
+                        visibilityErrorView = View.GONE
+                    )
                 }
                 is DataHolder.READY -> {
-                    setVisibility(false, View.GONE, View.VISIBLE, View.GONE)
+                    setVisibility(
+                        isRefreshing = false,
+                        visibilityLoadingView = View.GONE,
+                        visibilityContentView = View.VISIBLE,
+                        visibilityErrorView = View.GONE
+                    )
                     adapter.setupItems(holder.data)
                 }
                 is DataHolder.ERROR -> {
-                    setVisibility(true, View.GONE, View.GONE, View.VISIBLE)
+                    setVisibility(
+                        isRefreshing = false,
+                        visibilityLoadingView = View.GONE,
+                        visibilityContentView = View.GONE,
+                        visibilityErrorView = View.VISIBLE
+                    )
+                    processException(holder.failure)
                 }
             }
         }
@@ -110,6 +139,29 @@ class CharactersFragment : Fragment(R.layout.fragment_characters) {
         binding.loadingView.root.visibility = visibilityLoadingView
         binding.contentView.visibility = visibilityContentView
         binding.errorView.root.visibility = visibilityErrorView
+    }
+
+    private fun processException(failure: Throwable) {
+        when (failure) {
+            is ConnectionException -> {
+                binding.errorView.veIcon.setImageDrawable(ResourcesUtils.getDrawable(R.drawable.icon_no_internet))
+                binding.errorView.connectionError.text = getString(R.string.error_connection_title)
+                binding.errorView.connectionErrorDescription.text =
+                    getString(R.string.error_connection_message)
+            }
+            is BackendException -> {
+                binding.errorView.veIcon.setImageDrawable(ResourcesUtils.getDrawable(R.drawable.icon_backend_error))
+                binding.errorView.connectionError.text = getString(R.string.error_backend_title)
+                binding.errorView.connectionErrorDescription.text =
+                    getString(R.string.error_backend_message)
+            }
+            else -> {
+                binding.errorView.veIcon.setImageDrawable(ResourcesUtils.getDrawable(R.drawable.icon_backend_error))
+                binding.errorView.connectionError.text = getString(R.string.error_title)
+                binding.errorView.connectionErrorDescription.text =
+                    "${failure.javaClass}: ${failure.message}"
+            }
+        }
     }
 
 

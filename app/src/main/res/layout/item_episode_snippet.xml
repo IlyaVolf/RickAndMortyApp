@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="@dimen/margin_sides"
-    android:layout_marginVertical="@dimen/margin_sides_small"
-    android:focusable="true"
+    android:paddingHorizontal="@dimen/margin_sides"
+    android:paddingVertical="6dp"
+    android:background="@drawable/background_pressed"
     android:clickable="true"
+    android:focusable="true"
     android:orientation="vertical">
 
     <TextView

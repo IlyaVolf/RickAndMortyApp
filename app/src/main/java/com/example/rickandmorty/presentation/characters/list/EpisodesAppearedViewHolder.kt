@@ -1,6 +1,5 @@
 package com.example.rickandmorty.presentation.characters.list
 
-import android.view.View
 import com.example.rickandmorty.databinding.ItemEpisodeSnippetBinding
 import com.example.rickandmorty.presentation.base.BaseViewHolder
 import com.example.rickandmorty.domain.entities.EpisodeSnippet

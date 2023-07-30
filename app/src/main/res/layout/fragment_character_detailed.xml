@@ -51,6 +51,7 @@
                 android:layout_marginHorizontal="@dimen/margin_sides"
                 android:textAlignment="textStart"
                 android:textSize="18sp"
+                tools:textColor="@color/green_medium"
                 tools:text="@string/alive" />
 
             <Space
@@ -147,7 +148,7 @@
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp" />
+                android:layout_height="32dp" />
 
             <TextView
                 android:id="@+id/characterEpisodesField"

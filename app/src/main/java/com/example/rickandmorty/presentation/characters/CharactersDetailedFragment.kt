@@ -1,11 +1,12 @@
 package com.example.rickandmorty.presentation.characters
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.rickandmorty.R
 import com.example.rickandmorty.databinding.FragmentCharacterDetailedBinding
+import com.example.rickandmorty.domain.BackendException
+import com.example.rickandmorty.domain.ConnectionException
 import com.example.rickandmorty.utils.DataHolder
 import com.example.rickandmorty.utils.viewBinding
 import com.example.rickandmorty.utils.viewModelCreator
@@ -14,6 +15,7 @@ import com.example.rickandmorty.domain.entities.EpisodeSnippet
 import com.example.rickandmorty.domain.entities.Status
 import com.example.rickandmorty.presentation.characters.list.EpisodesAppearedAdapter
 import com.example.rickandmorty.utils.ResourcesUtils.getColor
+import com.example.rickandmorty.utils.ResourcesUtils.getDrawable
 import com.example.rickandmorty.utils.getResourceString
 import com.example.rickandmorty.utils.image_loader.loadImage
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,7 +27,7 @@ class CharactersDetailedFragment : Fragment(R.layout.fragment_character_detailed
     @Inject
     lateinit var factory: CharactersDetailedViewModel.Factory
     private val viewModel by viewModelCreator {
-        factory.create(2)
+        factory.create(10)
     }
     private val binding by viewBinding<FragmentCharacterDetailedBinding>()
 
@@ -51,24 +53,41 @@ class CharactersDetailedFragment : Fragment(R.layout.fragment_character_detailed
         viewModel.character.observe(viewLifecycleOwner) { holder ->
             when (holder) {
                 is DataHolder.INIT -> {
-                    setVisibility(View.VISIBLE, View.GONE, View.GONE)
+                    setVisibility(
+                        visibilityLoadingView = View.VISIBLE,
+                        visibilityContentView = View.GONE,
+                        visibilityErrorView = View.GONE
+                    )
                 }
                 is DataHolder.LOADING -> {
-                    setVisibility(View.VISIBLE, View.GONE, View.GONE)
+                    setVisibility(
+                        visibilityLoadingView = View.VISIBLE,
+                        visibilityContentView = View.GONE,
+                        visibilityErrorView = View.GONE
+                    )
                 }
                 is DataHolder.READY -> {
-                    setVisibility(View.GONE, View.VISIBLE, View.GONE)
-                    drawCharacterDetailedInfo(holder.data, adapter)
+                    setVisibility(
+                        visibilityLoadingView = View.GONE,
+                        visibilityContentView = View.VISIBLE,
+                        visibilityErrorView = View.GONE
+                    )
+                    renderCharacterDetailedInfo(holder.data, adapter)
                 }
                 is DataHolder.ERROR -> {
-                    setVisibility(View.GONE, View.GONE, View.VISIBLE)
+                    setVisibility(
+                        visibilityLoadingView = View.GONE,
+                        visibilityContentView = View.GONE,
+                        visibilityErrorView = View.VISIBLE
+                    )
+                    processException(holder.failure)
                 }
                 else -> {}
             }
         }
     }
 
-    private fun drawCharacterDetailedInfo(
+    private fun renderCharacterDetailedInfo(
         characterDetailed: CharacterDetailed,
         adapter: EpisodesAppearedAdapter
     ) {
@@ -105,6 +124,29 @@ class CharactersDetailedFragment : Fragment(R.layout.fragment_character_detailed
         binding.loadingView.root.visibility = visibilityLoadingView
         binding.contentView.visibility = visibilityContentView
         binding.errorView.root.visibility = visibilityErrorView
+    }
+
+    private fun processException(failure: Throwable) {
+        when (failure) {
+            is ConnectionException -> {
+                binding.errorView.veIcon.setImageDrawable(getDrawable(R.drawable.icon_no_internet))
+                binding.errorView.connectionError.text = getString(R.string.error_connection_title)
+                binding.errorView.connectionErrorDescription.text =
+                    getString(R.string.error_connection_message)
+            }
+            is BackendException -> {
+                binding.errorView.veIcon.setImageDrawable(getDrawable(R.drawable.icon_backend_error))
+                binding.errorView.connectionError.text = getString(R.string.error_backend_title)
+                binding.errorView.connectionErrorDescription.text =
+                    getString(R.string.error_backend_message)
+            }
+            else -> {
+                binding.errorView.veIcon.setImageDrawable(getDrawable(R.drawable.icon_backend_error))
+                binding.errorView.connectionError.text = getString(R.string.error_title)
+                binding.errorView.connectionErrorDescription.text =
+                    "${failure.javaClass}: ${failure.message}"
+            }
+        }
     }
 
 }
