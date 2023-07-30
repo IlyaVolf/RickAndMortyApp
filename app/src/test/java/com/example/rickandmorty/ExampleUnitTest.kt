@@ -1,6 +1,6 @@
 package com.example.rickandmorty
 
-import com.example.rickandmorty.data.base.RetrofitConfig
+import com.example.rickandmorty.data.base.retrofit.RetrofitConfig
 import com.example.rickandmorty.data.characters.sources.retrofit.CharactersApi
 import com.example.rickandmorty.data.characters.sources.retrofit.RetrofitCharactersSource
 import com.google.gson.Gson
@@ -12,7 +12,6 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
 
-import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
 import retrofit2.Retrofit

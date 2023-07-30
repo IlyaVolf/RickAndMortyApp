@@ -155,8 +155,13 @@
     </androidx.core.widget.NestedScrollView>
 
     <include
-        android:id="@+id/loadState"
-        layout="@layout/view_load_state"
+        android:id="@+id/loadingView"
+        layout="@layout/view_loading"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/errorView"
+        layout="@layout/view_error"
         android:visibility="gone" />
 
 </LinearLayout>

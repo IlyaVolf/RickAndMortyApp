@@ -1,4 +1,4 @@
-package com.example.rickandmorty.data.base
+package com.example.rickandmorty.data.base.retrofit
 
 import com.example.rickandmorty.domain.AppException
 import com.example.rickandmorty.domain.BackendException
@@ -8,8 +8,6 @@ import com.google.gson.Gson
 import com.google.gson.JsonIOException
 import com.google.gson.JsonParseException
 import com.google.gson.JsonSyntaxException
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import retrofit2.Retrofit
 import java.io.IOException

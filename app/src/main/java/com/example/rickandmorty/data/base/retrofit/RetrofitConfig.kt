@@ -1,4 +1,4 @@
-package com.example.rickandmorty.data.base
+package com.example.rickandmorty.data.base.retrofit
 
 import com.google.gson.Gson
 import retrofit2.Retrofit
