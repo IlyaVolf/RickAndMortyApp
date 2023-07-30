@@ -12,4 +12,11 @@
     <color name="grey_dark">#FF2E2E2E</color>
     <color name="green_light">#FF00BF56</color>
     <color name="green_medium">#FF047A39</color>
+
+    <!-- Basic -->
+    <color name="red">#FF0000</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="light_blue">#00FFFF</color>
+    <color name="green">#00FF00</color>
+    <color name="blue">#0000FF</color>
 </resources>

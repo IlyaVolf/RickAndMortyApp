@@ -20,7 +20,6 @@ class CharacterViewHolder(
             }
 
             characterPicture.loadImage(item.image.orEmpty())
-            characterName.visibility = View.VISIBLE
             characterName.text = item.name
         }
     }

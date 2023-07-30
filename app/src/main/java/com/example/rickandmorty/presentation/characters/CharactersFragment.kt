@@ -1,21 +1,17 @@
 package com.example.rickandmorty.presentation.characters
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.SearchView
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.rickandmorty.R
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import com.example.rickandmorty.databinding.FragmentCharactersBinding
 import com.example.rickandmorty.presentation.characters.list.CharactersAdapter
 import com.example.rickandmorty.utils.DataHolder
 import com.example.rickandmorty.utils.viewBinding
 import com.example.rickandmorty.domain.entities.Character
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class CharactersFragment : Fragment(R.layout.fragment_characters) {
@@ -41,45 +37,28 @@ class CharactersFragment : Fragment(R.layout.fragment_characters) {
 
     private fun initAdapter(): CharactersAdapter {
         val adapter = CharactersAdapter(onItemClick)
-        binding.launchesRecyclerView.adapter = adapter
+        binding.charactersList.adapter = adapter
         return adapter
     }
 
     private fun observeViewModel(adapter: CharactersAdapter) {
         viewModel.charactersList.observe(viewLifecycleOwner) { holder ->
-            Log.d("BUGFIX", "$holder")
             when (holder) {
                 is DataHolder.INIT -> {
-                    binding.swipeRefreshLayout.isRefreshing = false
-                    binding.loadingView.root.visibility = View.VISIBLE
-                    binding.contentView.visibility = View.GONE
-                    binding.errorView.root.visibility = View.GONE
+                    setVisibility(false, View.VISIBLE, View.GONE, View.GONE)
                 }
                 is DataHolder.LOADING -> {
-                    binding.swipeRefreshLayout.isRefreshing = false
-                    binding.loadingView.root.visibility = View.VISIBLE
-                    binding.contentView.visibility = View.GONE
-                    binding.errorView.root.visibility = View.GONE
+                    setVisibility(false, View.VISIBLE, View.GONE, View.GONE)
                 }
                 is DataHolder.REFRESH -> {
-                    binding.swipeRefreshLayout.isRefreshing = true
-                    binding.loadingView.root.visibility = View.GONE
-                    binding.contentView.visibility = View.VISIBLE
-                    binding.errorView.root.visibility = View.GONE
+                    setVisibility(true, View.VISIBLE, View.GONE, View.GONE)
                 }
                 is DataHolder.READY -> {
-                    binding.swipeRefreshLayout.isRefreshing = false
-                    binding.loadingView.root.visibility = View.GONE
-                    binding.contentView.visibility = View.VISIBLE
-                    binding.errorView.root.visibility = View.GONE
-
+                    setVisibility(false, View.GONE, View.VISIBLE, View.GONE)
                     adapter.setupItems(holder.data)
                 }
                 is DataHolder.ERROR -> {
-                    binding.swipeRefreshLayout.isRefreshing = false
-                    binding.loadingView.root.visibility = View.GONE
-                    binding.contentView.visibility = View.GONE
-                    binding.errorView.root.visibility = View.VISIBLE
+                    setVisibility(true, View.GONE, View.GONE, View.VISIBLE)
                 }
             }
         }
@@ -92,7 +71,7 @@ class CharactersFragment : Fragment(R.layout.fragment_characters) {
     }
 
     private fun initErrorViewListener() {
-        binding.errorView.veTryAgain.setOnClickListener {
+        binding.errorView.tryAgain.setOnClickListener {
             viewModel.tryAgain()
         }
     }
@@ -119,6 +98,18 @@ class CharactersFragment : Fragment(R.layout.fragment_characters) {
                 return true
             }
         })
+    }
+
+    private fun setVisibility(
+        isRefreshing: Boolean,
+        visibilityLoadingView: Int,
+        visibilityContentView: Int,
+        visibilityErrorView: Int
+    ) {
+        binding.swipeRefreshLayout.isRefreshing = isRefreshing
+        binding.loadingView.root.visibility = visibilityLoadingView
+        binding.contentView.visibility = visibilityContentView
+        binding.errorView.root.visibility = visibilityErrorView
     }
 
 
