@@ -2,19 +2,14 @@ package com.example.rickandmorty.data.characters.mappers
 
 import com.example.rickandmorty.data.characters.entities.CharactersListResponseEntity
 import com.example.rickandmorty.data.characters.entities.CharacterResponseEntity
-import com.example.rickandmorty.data.episodes.entities.EpisodeResponseEntity
-import com.example.rickandmorty.data.episodes.mappers.EpisodeMapper
 import com.example.rickandmorty.domain.entities.Character
-import com.example.rickandmorty.domain.entities.CharacterDetailed
-import com.example.rickandmorty.domain.entities.EpisodeSnippet
 import javax.inject.Inject
 
 class CharacterMapper @Inject constructor(
     private val genderMapper: GenderMapper,
     private val originMapper: OriginMapper,
     private val locationMapper: LocationMapper,
-    private val statusMapper: StatusMapper,
-    private val episodeMapper: EpisodeMapper
+    private val statusMapper: StatusMapper
 ) {
 
     fun toCharacter(
@@ -33,16 +28,6 @@ class CharacterMapper @Inject constructor(
             episode = characterResponseEntity.episode,
             url = characterResponseEntity.url,
             created = characterResponseEntity.created
-        )
-    }
-
-    fun toCharacterDetailed(
-        characterResponseEntity: CharacterResponseEntity,
-        episodesResponseEntity: List<EpisodeResponseEntity>
-    ): CharacterDetailed {
-        return CharacterDetailed(
-            character = toCharacter(characterResponseEntity),
-            episodeSnippetsList = episodesResponseEntity.map { episodeMapper.toEpisodeSnippet(it) }
         )
     }
 
