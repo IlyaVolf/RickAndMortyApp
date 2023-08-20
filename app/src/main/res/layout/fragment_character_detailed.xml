@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".presentation.characters.CharacterDetailedFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/contentView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/characterPicture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <TextView
+                android:id="@+id/characterName"
+                style="@style/TextStyleBold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_sides"
+                android:textAlignment="textStart"
+                android:textSize="28sp"
+                tools:text="@tools:sample/full_names" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="4dp" />
+
+            <TextView
+                android:id="@+id/characterStatus"
+                style="@style/TextStyleStandard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_sides"
+                android:textAlignment="textStart"
+                android:textSize="18sp"
+                tools:textColor="@color/green_medium"
+                tools:text="@string/alive" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <TextView
+                android:id="@+id/characterSpeciesField"
+                style="@style/TextStyleSecondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_sides"
+                android:text="@string/species"
+                android:textAlignment="textStart" />
+
+            <TextView
+                android:id="@+id/characterSpecies"
+                style="@style/TextStyleStandard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_sides"
+                android:textAlignment="textStart"
+                android:textSize="16sp"
+                tools:text="Human" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="6dp" />
+
+            <TextView
+                android:id="@+id/characterGenderField"
+                style="@style/TextStyleSecondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_sides"
+                android:text="@string/gender"
+                android:textAlignment="textStart" />
+
+            <TextView
+                android:id="@+id/characterGender"
+                style="@style/TextStyleStandard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_sides"
+                android:textAlignment="textStart"
+                android:textSize="16sp"
+                tools:text="@string/male" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="6dp" />
+
+            <TextView
+                android:id="@+id/characterOriginField"
+                style="@style/TextStyleSecondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_sides"
+                android:text="@string/origin"
+                android:textAlignment="textStart" />
+
+            <TextView
+                android:id="@+id/characterOrigin"
+                style="@style/TextStyleStandard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_sides"
+                android:textAlignment="textStart"
+                android:textSize="16sp"
+                tools:text="Russia" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="6dp" />
+
+            <TextView
+                android:id="@+id/characterLocationField"
+                style="@style/TextStyleSecondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_sides"
+                android:text="@string/location"
+                android:textAlignment="textStart" />
+
+            <TextView
+                android:id="@+id/characterLocation"
+                style="@style/TextStyleStandard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_sides"
+                android:textAlignment="textStart"
+                android:textSize="16sp"
+                tools:text="Russia" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="32dp" />
+
+            <TextView
+                android:id="@+id/characterEpisodesField"
+                android:layout_marginHorizontal="@dimen/margin_sides"
+                style="@style/TextStyleSecondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="@string/episode_appeared"
+                android:textAlignment="textStart" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/episodesList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="1"
+                tools:listitem="@layout/item_episode_snippet" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_sides" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <include
+        android:id="@+id/loadingView"
+        layout="@layout/view_loading"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/errorView"
+        layout="@layout/view_error"
+        android:visibility="gone" />
+
+</LinearLayout>

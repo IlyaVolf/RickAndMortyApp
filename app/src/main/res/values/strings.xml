@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">RickAndMorty</string>
+
+    <!-- Errors -->
+    <string name="error">Ошибка</string>
+    <string name="error_title">Ошибка</string>
+    <string name="error_message">Повторите позднее</string>
+    <string name="error_connection_title">Ошибка подключения</string>
+    <string name="error_connection_message">Проверьте соединение с интернетом</string>
+    <string name="error_backend_title">Ошибка сервера</string>
+    <string name="error_backend_message">Повторите позднее</string>
+    <string name="error_default_load_error_body">Ошибка подключения: проверьте соединение с интернетом</string>
+
+    <!-- Actions -->
+    <string name="action_try_again">Повторить</string>
+
+    <!-- Status -->
+    <string name="status">Status</string>
+    <string name="alive">Alive</string>
+    <string name="dead">Dead</string>
+
+
+    <!-- Gender -->
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="genderless">Genderless</string>
+    <string name="unknown">Alive</string>
+
+    <!-- Species -->
+    <string name="species">Species</string>
+
+    <!-- Origin -->
+    <string name="origin">Origin</string>
+
+    <!-- Location -->
+    <string name="location">Location</string>
+    <string name="location_last">Last known location</string>
+
+    <!-- Episode -->
+    <string name="episode">Episode</string>
+    <string name="episode_appeared">Appeared in episodes</string>
+
+</resources>
