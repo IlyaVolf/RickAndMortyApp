@@ -1,4 +1,4 @@
-package com.thesis.sportologia.utils.image_loader
+package com.example.rickandmorty.utils.image_loader
 
 import android.content.Context
 import android.graphics.drawable.Drawable
@@ -13,7 +13,8 @@ import com.bumptech.glide.load.resource.bitmap.*
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
-import com.example.rickandmorty.utils.image_loader.ImageLoader
+import com.thesis.sportologia.utils.image_loader.ImageLoaderListener
+import com.thesis.sportologia.utils.image_loader.LoaderCreator
 import java.io.File
 
 /**

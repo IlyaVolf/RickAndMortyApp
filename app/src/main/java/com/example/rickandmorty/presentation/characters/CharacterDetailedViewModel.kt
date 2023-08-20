@@ -12,7 +12,7 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 
-class CharactersDetailedViewModel @AssistedInject constructor(
+class CharacterDetailedViewModel @AssistedInject constructor(
     @Assisted private val characterId: Int,
     private val charactersRepository: CharactersRepository
 ) : ViewModel() {
@@ -42,7 +42,7 @@ class CharactersDetailedViewModel @AssistedInject constructor(
 
     @AssistedFactory
     interface Factory {
-        fun create(characterId: Int): CharactersDetailedViewModel
+        fun create(characterId: Int): CharacterDetailedViewModel
     }
 
 }

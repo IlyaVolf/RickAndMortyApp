@@ -3,6 +3,7 @@ package com.example.rickandmorty.presentation.characters
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.example.rickandmorty.R
 import com.example.rickandmorty.databinding.FragmentCharacterDetailedBinding
 import com.example.rickandmorty.domain.BackendException
@@ -22,12 +23,14 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class CharactersDetailedFragment : Fragment(R.layout.fragment_character_detailed) {
+class CharacterDetailedFragment : Fragment(R.layout.fragment_character_detailed) {
+
+    private val args by navArgs<CharacterDetailedFragmentArgs>()
 
     @Inject
-    lateinit var factory: CharactersDetailedViewModel.Factory
+    lateinit var factory: CharacterDetailedViewModel.Factory
     private val viewModel by viewModelCreator {
-        factory.create(10)
+        factory.create(args.characterId)
     }
     private val binding by viewBinding<FragmentCharacterDetailedBinding>()
 

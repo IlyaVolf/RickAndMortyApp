@@ -10,10 +10,6 @@ import javax.inject.Inject
 import com.example.rickandmorty.domain.entities.Character
 import com.example.rickandmorty.utils.DataHolder
 import com.example.rickandmorty.utils.share
-import kotlinx.coroutines.flow.asFlow
-import kotlinx.coroutines.flow.distinctUntilChanged
-import kotlinx.coroutines.flow.flatMapLatest
-
 @HiltViewModel
 class CharactersViewModel @Inject constructor(
     private val charactersRepository: CharactersRepository

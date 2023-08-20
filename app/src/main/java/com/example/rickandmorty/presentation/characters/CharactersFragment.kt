@@ -4,8 +4,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
-import com.example.rickandmorty.R
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.example.rickandmorty.R
 import com.example.rickandmorty.databinding.FragmentCharactersBinding
 import com.example.rickandmorty.domain.BackendException
 import com.example.rickandmorty.domain.ConnectionException
@@ -23,11 +24,10 @@ class CharactersFragment : Fragment(R.layout.fragment_characters) {
     private val binding by viewBinding<FragmentCharactersBinding>()
 
     private val onItemClick: (Character) -> Unit = { character ->
-        /*val direction = AfficheFragmentDirections.actionAffichePostToAffichePostDetails(
-            postTitle = affichePost.title.orEmpty(),
-            postLink = affichePost.detailsLink.orEmpty()
+        val direction = CharactersFragmentDirections.actionCharactersFragmentToCharacterDetailedFragment(
+            characterId = character.id
         )
-        findNavController().navigate(direction)*/
+        findNavController().navigate(direction)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

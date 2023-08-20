@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
 import com.example.rickandmorty.utils.image_loader.ImageLoader
-import com.thesis.sportologia.utils.image_loader.GlideLoaderCreator
+import com.example.rickandmorty.utils.image_loader.GlideLoaderCreator
 import dagger.hilt.android.HiltAndroidApp
 
 /**
@@ -12,7 +12,6 @@ import dagger.hilt.android.HiltAndroidApp
  */
 @HiltAndroidApp
 class App : Application() {
-
     override fun onCreate() {
         super.onCreate()
 
