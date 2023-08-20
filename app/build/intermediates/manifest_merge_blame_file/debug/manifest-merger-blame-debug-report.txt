@@ -1,0 +1,96 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.rickandmorty"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="23"
+8-->C:\Users\Public\Android_Projects\RickAndMorty\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="33" />
+9-->C:\Users\Public\Android_Projects\RickAndMorty\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\Public\Android_Projects\RickAndMorty\app\src\main\AndroidManifest.xml:5:5-67
+11-->C:\Users\Public\Android_Projects\RickAndMorty\app\src\main\AndroidManifest.xml:5:22-64
+12
+13    <application
+13-->C:\Users\Public\Android_Projects\RickAndMorty\app\src\main\AndroidManifest.xml:7:5-27:19
+14        android:name="com.example.rickandmorty.App"
+14-->C:\Users\Public\Android_Projects\RickAndMorty\app\src\main\AndroidManifest.xml:8:9-28
+15        android:allowBackup="true"
+15-->C:\Users\Public\Android_Projects\RickAndMorty\app\src\main\AndroidManifest.xml:9:9-35
+16        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+16-->[androidx.core:core:1.8.0] C:\Users\Ilya Volf\.gradle\caches\transforms-3\c1c79c07c891917aef97446e11df8528\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
+17        android:dataExtractionRules="@xml/data_extraction_rules"
+17-->C:\Users\Public\Android_Projects\RickAndMorty\app\src\main\AndroidManifest.xml:10:9-65
+18        android:debuggable="true"
+19        android:extractNativeLibs="false"
+20        android:fullBackupContent="@xml/backup_rules"
+20-->C:\Users\Public\Android_Projects\RickAndMorty\app\src\main\AndroidManifest.xml:11:9-54
+21        android:icon="@mipmap/ic_launcher"
+21-->C:\Users\Public\Android_Projects\RickAndMorty\app\src\main\AndroidManifest.xml:12:9-43
+22        android:label="@string/app_name"
+22-->C:\Users\Public\Android_Projects\RickAndMorty\app\src\main\AndroidManifest.xml:13:9-41
+23        android:roundIcon="@mipmap/ic_launcher_round"
+23-->C:\Users\Public\Android_Projects\RickAndMorty\app\src\main\AndroidManifest.xml:14:9-54
+24        android:supportsRtl="true"
+24-->C:\Users\Public\Android_Projects\RickAndMorty\app\src\main\AndroidManifest.xml:15:9-35
+25        android:testOnly="true"
+26        android:theme="@style/Theme.RickAndMorty" >
+26-->C:\Users\Public\Android_Projects\RickAndMorty\app\src\main\AndroidManifest.xml:16:9-50
+27        <activity
+27-->C:\Users\Public\Android_Projects\RickAndMorty\app\src\main\AndroidManifest.xml:18:9-26:20
+28            android:name="com.example.rickandmorty.presentation.MainActivity"
+28-->C:\Users\Public\Android_Projects\RickAndMorty\app\src\main\AndroidManifest.xml:19:13-54
+29            android:exported="true" >
+29-->C:\Users\Public\Android_Projects\RickAndMorty\app\src\main\AndroidManifest.xml:20:13-36
+30            <intent-filter>
+30-->C:\Users\Public\Android_Projects\RickAndMorty\app\src\main\AndroidManifest.xml:21:13-25:29
+31                <action android:name="android.intent.action.MAIN" />
+31-->C:\Users\Public\Android_Projects\RickAndMorty\app\src\main\AndroidManifest.xml:22:17-69
+31-->C:\Users\Public\Android_Projects\RickAndMorty\app\src\main\AndroidManifest.xml:22:25-66
+32
+33                <category android:name="android.intent.category.LAUNCHER" />
+33-->C:\Users\Public\Android_Projects\RickAndMorty\app\src\main\AndroidManifest.xml:24:17-77
+33-->C:\Users\Public\Android_Projects\RickAndMorty\app\src\main\AndroidManifest.xml:24:27-74
+34            </intent-filter>
+35        </activity>
+36
+37        <uses-library
+37-->[androidx.window:window:1.0.0] C:\Users\Ilya Volf\.gradle\caches\transforms-3\a6b83f9e115762fa623682819aa7ee7d\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
+38            android:name="androidx.window.extensions"
+38-->[androidx.window:window:1.0.0] C:\Users\Ilya Volf\.gradle\caches\transforms-3\a6b83f9e115762fa623682819aa7ee7d\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
+39            android:required="false" />
+39-->[androidx.window:window:1.0.0] C:\Users\Ilya Volf\.gradle\caches\transforms-3\a6b83f9e115762fa623682819aa7ee7d\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
+40        <uses-library
+40-->[androidx.window:window:1.0.0] C:\Users\Ilya Volf\.gradle\caches\transforms-3\a6b83f9e115762fa623682819aa7ee7d\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
+41            android:name="androidx.window.sidecar"
+41-->[androidx.window:window:1.0.0] C:\Users\Ilya Volf\.gradle\caches\transforms-3\a6b83f9e115762fa623682819aa7ee7d\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
+42            android:required="false" />
+42-->[androidx.window:window:1.0.0] C:\Users\Ilya Volf\.gradle\caches\transforms-3\a6b83f9e115762fa623682819aa7ee7d\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
+43
+44        <provider
+44-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Ilya Volf\.gradle\caches\transforms-3\f80e383d7160816e876dcd7ec1de4f6f\transformed\emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+45            android:name="androidx.startup.InitializationProvider"
+45-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Ilya Volf\.gradle\caches\transforms-3\f80e383d7160816e876dcd7ec1de4f6f\transformed\emoji2-1.0.0\AndroidManifest.xml:27:13-67
+46            android:authorities="com.example.rickandmorty.androidx-startup"
+46-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Ilya Volf\.gradle\caches\transforms-3\f80e383d7160816e876dcd7ec1de4f6f\transformed\emoji2-1.0.0\AndroidManifest.xml:28:13-68
+47            android:exported="false" >
+47-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Ilya Volf\.gradle\caches\transforms-3\f80e383d7160816e876dcd7ec1de4f6f\transformed\emoji2-1.0.0\AndroidManifest.xml:29:13-37
+48            <meta-data
+48-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Ilya Volf\.gradle\caches\transforms-3\f80e383d7160816e876dcd7ec1de4f6f\transformed\emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+49                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+49-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Ilya Volf\.gradle\caches\transforms-3\f80e383d7160816e876dcd7ec1de4f6f\transformed\emoji2-1.0.0\AndroidManifest.xml:32:17-75
+50                android:value="androidx.startup" />
+50-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Ilya Volf\.gradle\caches\transforms-3\f80e383d7160816e876dcd7ec1de4f6f\transformed\emoji2-1.0.0\AndroidManifest.xml:33:17-49
+51            <meta-data
+51-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Ilya Volf\.gradle\caches\transforms-3\bef89b6c877a6280170631cd3195dfdc\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+52                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+52-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Ilya Volf\.gradle\caches\transforms-3\bef89b6c877a6280170631cd3195dfdc\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+53                android:value="androidx.startup" />
+53-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Ilya Volf\.gradle\caches\transforms-3\bef89b6c877a6280170631cd3195dfdc\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+54        </provider>
+55    </application>
+56
+57</manifest>
